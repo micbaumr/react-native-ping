@@ -64,7 +64,7 @@ public class PingUtil {
      * @return 平均RTT值，单位 ms 注意：-1是默认值，返回-1表示获取失败
      */
     public static int getAvgRTT(String url) {
-        return getAvgRTT(url, 1, 100);
+        return getAvgRTT(url, 1, 10000);
     }
 
     /**
@@ -122,7 +122,6 @@ public class PingUtil {
      * @return 平均RTT值，单位 ms 注意：-1是默认值，返回-1表示获取失败
      */
     public static int getAvgRTT(String domain, int count, int timeout) {
-        cout << timeout
         String pingString = ping(createSimplePingCommand(count, timeout, domain), timeout);
         String tempInfo = pingString.substring(pingString.indexOf("min/avg/max/mdev") + 19);
         String[] temps = tempInfo.split("/");
